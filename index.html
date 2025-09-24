@@ -1,12 +1,242 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>School Portal — Home</title>
 
+  <!-- Basic, self-contained styling so this single file works immediately -->
+  <style>
+    :root{
+      --accent:#0b63ff;
+      --muted:#666;
+      --card-bg:#fff;
+      --page-bg:#f4f7fb;
+      --radius:12px;
+      --max-w:980px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--page-bg), #eef3fb);
+      color:#222;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-w);
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(20,30,60,0.08);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      min-height: 420px;
+    }
+
+    /* left panel (brand/quick links) */
+    .panel-left{
+      padding:34px;
+      background:
+        linear-gradient(180deg, rgba(11,99,255,0.06), rgba(11,99,255,0.02));
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:flex-start;
+    }
+    .logo{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo img{
+      width:56px;
+      height:56px;
+      object-fit:cover;
+      border-radius:10px;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(11,99,255,0.08) inset;
+    }
+    .brand{
+      font-weight:700;
+      font-size:18px;
+      color:var(--accent);
+    }
+    .tagline{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:-6px;
+    }
+
+    .quick-links{margin-top:10px; width:100%;}
+    .quick-links a{
+      display:block;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:8px;
+      color:#0b63ff;
+      font-weight:600;
+      background:transparent;
+      transition:all .15s;
+      margin-bottom:8px;
+      border:1px solid rgba(11,99,255,0.06);
+    }
+    .quick-links a:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(11,99,255,0.06); }
+
+    .support{
+      margin-top:auto;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* right panel (main content) */
+    .panel-right{
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    h1{margin:0;font-size:22px}
+    p.lead{margin:0;color:var(--muted);line-height:1.5}
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .card{
+      padding:14px;
+      border-radius:10px;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border:1px solid rgba(20,30,60,0.04);
+      min-height:86px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:6px;
+    }
+    .card h3{margin:0;font-size:15px}
+    .card p{margin:0;font-size:12px;color:var(--muted)}
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      cursor:pointer;
+      border:0;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      box-shadow: 0 8px 20px rgba(11,99,255,0.12);
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--accent);
+      border:1.5px solid rgba(11,99,255,0.12);
+      font-weight:600;
+    }
+
+    footer{ margin-top: auto; font-size:13px; color:var(--muted) }
+
+    /* responsive */
+    @media (max-width:900px){
+      .wrap{ grid-template-columns: 1fr; padding:0; }
+      .panel-left{ flex-direction:row; align-items:center; gap:14px; padding:18px 20px; }
+      .panel-right{ padding:20px; }
+      .cards{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-	<center>
-	<h1>The Website is under Construction</h1>
-	</center>
-</body>
+  <div class="wrap" role="main" aria-labelledby="title-portal">
 
-</html>
+    <aside class="panel-left" aria-label="Brand and quick links">
+      <div class="logo">
+        <!-- If you have an image at images/bg.jpg it will show, otherwise it's decorative -->
+        <img src="images/bg.jpg" alt="Site logo" onerror="this.style.display='none'">
+        <div>
+          <div class="brand">Swat School Portal</div>
+          <div class="tagline">Parent / Student dashboard</div>
+        </div>
+      </div>
+
+      <nav class="quick-links" aria-label="Quick links">
+        <a href="parent_Login.php">Parent Login</a>
+        <a href="parent_Registration.php">Parent Registration</a>
+        <a href="parent_View_Profile.php">View Profile</a>
+        <a href="parent_Check_Attendance.php">Check Attendance</a>
+        <a href="parent_Fee_Details.php">Fee Details</a>
+        <a href="parent_Result_Analysis.php">Result Analysis</a>
+      </nav>
+
+      <div class="support">
+        <div>Need help? Email: <a href="mailto:ogorofelix276@gmail.com">ogorofelix276@gmail.com</a></div>
+        <div style="margin-top:8px;font-size:12px;color:#999">Make sure PHP is enabled on the server and files are in same folder.</div>
+      </div>
+    </aside>
+
+    <section class="panel-right">
+      <div>
+        <h1 id="title-portal">Welcome to the School Portal</h1>
+        <p class="lead">Quick links to common parent actions. Click <strong>Parent Login</strong> to sign in, or <strong>Parent Registration</strong> to create an account.</p>
+      </div>
+
+      <div class="cards" aria-hidden="false">
+        <div class="card">
+          <h3>Secure Login</h3>
+          <p>Use the login page to access attendance, fees and results.</p>
+        </div>
+        <div class="card">
+          <h3>Register a Parent</h3>
+          <p>Create an account using the student's registration number.</p>
+        </div>
+        <div class="card">
+          <h3>Attendance</h3>
+          <p>View daily and monthly attendance reports.</p>
+        </div>
+        <div class="card">
+          <h3>Fees & Results</h3>
+          <p>Check fee status and download result analysis.</p>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="parent_Login.php" role="button">Enter (Login)</a>
+        <a class="btn btn-ghost" href="parent_Registration.php" role="button">Register</a>
+        <a class="btn" href="masterPageParent.php" style="background:#f5f7fa;border:1px solid #eef2ff;color:#0b63ff">Admin / Dashboard</a>
+      </div>
+
+      <footer>
+        <div>Deployment notes: put this `index.html` in the same folder as the PHP files (e.g. `parent_Login.php`, `parent_Registration.php`, etc.). Ensure your server serves PHP (Apache / Nginx + PHP-FPM) and the DB `config.php` is correctly configured.</div>
+      </footer>
+    </section>
+
+  </div>
+
+  <!-- tiny JS to improve UX (optional) -->
+  <script>
+    // if someone opens index.html directly on a PHP-supporting server and is already logged via PHP session,
+    // you might want to redirect them. This client-side snippet only helps if you have server-set flag in JS (not present).
+    (function(){
+      // no-op placeholder; kept so it's safe to drop into any environment
+    })();
+  </script>
+</body>
+	</html>
